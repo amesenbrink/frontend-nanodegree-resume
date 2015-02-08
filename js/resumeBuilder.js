@@ -198,14 +198,14 @@ education.display = function() {
     $("#education").append(HTMLOnlineStart);
     for (course in education.onlineCourse) {
       var formattedTitle = HTMLonlineTitle.replace("%data%", education.onlineCourse[course].title);
-      $(".education-entry").append(formattedTitle);      
+      $(".education-entry:last").append(formattedTitle);      
       var formattedSchool = HTMLonlineSchool.replace("%data%", education.onlineCourse[course].school);
-      $(".education-entry").append(formattedSchool);
-      $(".education-entry").append('<br>')
+      $(".education-entry:last").append(formattedSchool);
+      $(".education-entry:last").append('<br>')
       var formattedDate = HTMLonlineDates.replace("%data%", education.onlineCourse[course].dates);
-      $(".education-entry").append(formattedDate);
+      $(".education-entry:last").append(formattedDate);
       var formattedUrl = HTMLonlineURL.replace("%data%", education.onlineCourse[course].url);
-      $(".education-entry").append(formattedUrl);
+      $(".education-entry:last").append(formattedUrl);
    };
   }
 };
