@@ -1,0 +1,19 @@
+This is a list of references I used to build my resume:
+Udacity JavaScript Basics
+Udacity Intro to jQuery
+
+
+Google Maps Developer site
+https://developers.google.com/maps/documentation/javascript/tutorial
+
+jQuery API
+http://api.jquery.com/
+
+w3schools.com 
+http://www.w3schools.com/js/
+http://www.w3schools.com/jquery/
+
+HipChat - Awesome General Discussion
+
+
+Adam Mesenbrink
