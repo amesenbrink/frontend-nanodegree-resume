@@ -8,7 +8,7 @@ var bio = {
         "github": "amesenbrink",
         "location": "Roanoke, TX, USA"
     },
-    "welcomeMessage": "Hi, How are you?",
+    "welcomeMessage": "Believe you can and you're halfway there.  -Theodore Roosevelt",
     "skills": [
         "Windows Server",
         "Linux Server",
@@ -92,25 +92,25 @@ var projects = {
         "title" : "Manifest Migration",
         "dates" : "September 2013 - December 2013",
         "description" : "The team moved an application that distributed data to 8 million network devices across the US.  I worked to prepare the web servers at the new data center and validate they were ready for the application.  We were able to move the application without interruption of service.",
-        "images" : ["images/197x148.gif", "images/197x148-2.gif"]
+        "images" : []
       },
       {
         "title" : "Patching ShellShock Vulnerability",
         "dates" : "September 2014",
         "description" : "When a Bash vulnerability was discovered I had to develop and deployment plan to patch over 200 Linux servers in 3 data centers.  A solution was provided and the servers were patched within 4 days of the vulnerability notification.",
-        "images" : ["images/197x148.gif", "images/197x148-2.gif"]
+        "images" : []
       },
      {
         "title" : "DataCenter Build and Migration",
         "dates" : "2012 - 2013",
         "description" : "I was the technical lead that oversaw the build and implementation of 2 web hosting data centers, the migration of applications to a virtualized environment.",
-        "images" : ["images/197x148.gif", "images/197x148-2.gif"]
+        "images" : []
       },
       {
         "title" : "Fraudview Web Application",
         "dates" : "2004 - 2007",
         "description" : "I was the front-end web developer for the Fraudview web application.  The application provided quick access to more than a dozen legacy billings systems throughout the country, and displaying account information on a secure web page.  The application consolidated account access and automated information gathering.",
-        "images" : ["images/197x148.gif", "images/197x148-2.gif"]
+        "images" : []
       }
     ]
 };
@@ -128,8 +128,6 @@ bio.display = function() {
   $("#footerContacts").append(HTMLemail.replace("%data%", bio.contacts.email)); 
   $("#footerContacts").append(HTMLtwitter.replace("%data%", bio.contacts.twitter));
   $("#footerContacts").append(HTMLgithub.replace("%data%", bio.contacts.github)); 
-  // $("#header").append(HTMLblog.replace("%data%", bio.contact[])); 
-  // $("#header").append(HTMLlocation.replace("%data%", bio.contact[])); 
   $("#header").append(HTMLbioPic.replace("%data%", bio.biopic));
   $("#header").append(HTMLWelcomeMsg.replace("%data%", bio.welcomeMessage));
   if(bio.skills.length > 0 ) {
@@ -143,6 +141,7 @@ bio.display = function() {
 };
 
 // function to display the work history information in the included JSON
+
 work.display = function () {
     for (job in work.jobs) {
     $("#workExperience").append(HTMLworkStart);
@@ -160,6 +159,7 @@ work.display = function () {
 };
 
 // function to display the project information in the included JSON
+
 projects.display = function() {
   for ( task in projects.projects) {
     $("#projects").append(HTMLprojectStart);
@@ -198,15 +198,14 @@ education.display = function() {
     $("#education").append(HTMLOnlineStart);
     for (course in education.onlineCourse) {
       var formattedTitle = HTMLonlineTitle.replace("%data%", education.onlineCourse[course].title);
-      $(".education-entry:last").append(formattedTitle);      
+      $(".education-entry").append(formattedTitle);      
       var formattedSchool = HTMLonlineSchool.replace("%data%", education.onlineCourse[course].school);
-      $(".education-entry:last").append(formattedSchool);
+      $(".education-entry").append(formattedSchool);
+      $(".education-entry").append('<br>')
       var formattedDate = HTMLonlineDates.replace("%data%", education.onlineCourse[course].dates);
-      $(".education-entry:last").append(formattedDate);
+      $(".education-entry").append(formattedDate);
       var formattedUrl = HTMLonlineURL.replace("%data%", education.onlineCourse[course].url);
-      $(".education-entry:last").append(formattedUrl);
-      //var hLine = '<hr>';
-      $(".education-entry:last").append("<br>");
+      $(".education-entry").append(formattedUrl);
    };
   }
 };
