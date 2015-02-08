@@ -170,9 +170,14 @@ function initializeMap() {
     });
 
     // hmmmm, I wonder what this is about...
+    // well let me tell you
+    // I'm not positive what you were looking for so I set the mop to zoom in and 
+    // set a new center when a marker is clicked.
     google.maps.event.addListener(marker, 'click', function() {
-      // your code goes here!
+      map.setZoom(10);
+      map.setCenter(marker.getPosition());
     });
+
 
     // this is where the pin actually gets added to the map.
     // bounds.extend() takes in a map location object

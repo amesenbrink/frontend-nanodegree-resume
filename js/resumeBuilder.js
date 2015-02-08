@@ -120,6 +120,7 @@ var projects = {
 bio.display = function() {
   $("#header").prepend(HTMLheaderRole.replace("%data%", bio.role));
   $("#header").prepend(HTMLheaderName.replace("%data%", bio.name));
+  document.title = bio.name + "'s resume";
   $("#topContacts").append(HTMLmobile.replace("%data%", bio.contacts.mobile));
   $("#topContacts").append(HTMLemail.replace("%data%", bio.contacts.email)); 
   $("#topContacts").append(HTMLtwitter.replace("%data%", bio.contacts.twitter));
@@ -184,13 +185,14 @@ education.display = function() {
   if(education.schools.length = 1 ) {
     $("#education").append(HTMLschoolStart);
     var formattedName = HTMLschoolName.replace("%data%", education.schools.name);
-    $(".education-entry").append(formattedName);
     var formattedDegree = HTMLschoolDegree.replace("%data%", education.schools.degree);
-    $(".education-entry").append(formattedDegree);
+    var nameDegree = formattedName + formattedDegree;
+    $(".education-entry").append(nameDegree);
     var formattedDate = HTMLschoolDates.replace("%data%", education.schools.dates);
     $(".education-entry").append(formattedDate);
     var formattedLocation = HTMLschoolLocation.replace("%data%", education.schools.location);
     $(".education-entry").append(formattedLocation);
+    $(".education-entry").append('<br>')
   };
   if(education.onlineCourse.length > 0) {
     $("#education").append(HTMLonlineClasses);
@@ -198,10 +200,9 @@ education.display = function() {
     $("#education").append(HTMLOnlineStart);
     for (course in education.onlineCourse) {
       var formattedTitle = HTMLonlineTitle.replace("%data%", education.onlineCourse[course].title);
-      $(".education-entry:last").append(formattedTitle);      
       var formattedSchool = HTMLonlineSchool.replace("%data%", education.onlineCourse[course].school);
-      $(".education-entry:last").append(formattedSchool);
-      $(".education-entry:last").append('<br>')
+      var courseSchool = formattedTitle + formattedSchool;
+      $(".education-entry:last").append(courseSchool);      
       var formattedDate = HTMLonlineDates.replace("%data%", education.onlineCourse[course].dates);
       $(".education-entry:last").append(formattedDate);
       var formattedUrl = HTMLonlineURL.replace("%data%", education.onlineCourse[course].url);
@@ -210,7 +211,7 @@ education.display = function() {
   }
 };
 
-
+// call the functions to insert the data from the JSON into the index.html 
 work.display();
 
 bio.display();
@@ -219,4 +220,5 @@ projects.display();
 
 education.display();
 
+// call the Google Map.
 $("#mapDiv").append(googleMap);
